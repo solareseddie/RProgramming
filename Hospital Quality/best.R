@@ -2,6 +2,7 @@ finder <- function(data, col, state) {
   #Creates an array from the desired state and outcome
   state_mat <- data[data[,7] == state, ]
   final_arr <- state_mat[, col]
+  
   #Finds the minimum value and gives hospital with min value
   min <- min(final_arr, na.rm = T)
   ind <- which(final_arr == min)
@@ -21,7 +22,7 @@ best <- function(state, outcome) {
   #Valid Outcome Array
   valid_outcome <- c("heart attack", "heart failure", "pneumonia")
   
-  #Checks to see if state and outcome are valid
+  #Checks to see if state and outcome are valid, then returns hospital name
   if (!(state %in% data$State)) {
     print("invalid state")
   }
